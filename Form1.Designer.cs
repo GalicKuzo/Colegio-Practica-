@@ -35,12 +35,12 @@
             this.lbl_Lista = new System.Windows.Forms.Label();
             this.lbl_Datos = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.list_Alumnos = new System.Windows.Forms.ListBox();
-            this.lbl_Apellidos = new System.Windows.Forms.Label();
-            this.lbl_Nombres = new System.Windows.Forms.Label();
-            this.btn_Actualizar = new System.Windows.Forms.Button();
-            this.txtbox_Apellidos = new System.Windows.Forms.TextBox();
             this.txtbox_Nombres = new System.Windows.Forms.TextBox();
+            this.txtbox_Apellidos = new System.Windows.Forms.TextBox();
+            this.btn_Actualizar = new System.Windows.Forms.Button();
+            this.lbl_Nombres = new System.Windows.Forms.Label();
+            this.lbl_Apellidos = new System.Windows.Forms.Label();
+            this.list_Alumnos = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +53,7 @@
             this.btn_CrearColegio.TabIndex = 0;
             this.btn_CrearColegio.Text = "Crear Colegio";
             this.btn_CrearColegio.UseVisualStyleBackColor = true;
+            this.btn_CrearColegio.Click += new System.EventHandler(this.btn_CrearColegio_Click);
             // 
             // lbl_Aula
             // 
@@ -71,6 +72,7 @@
             this.cbox_Aulas.Name = "cbox_Aulas";
             this.cbox_Aulas.Size = new System.Drawing.Size(236, 24);
             this.cbox_Aulas.TabIndex = 2;
+            this.cbox_Aulas.SelectedIndexChanged += new System.EventHandler(this.cbox_Aulas_SelectedIndexChanged);
             // 
             // btn_CrearRelacion
             // 
@@ -81,6 +83,7 @@
             this.btn_CrearRelacion.TabIndex = 3;
             this.btn_CrearRelacion.Text = "Crear Relación de Alumnos del Aula";
             this.btn_CrearRelacion.UseVisualStyleBackColor = true;
+            this.btn_CrearRelacion.Click += new System.EventHandler(this.btn_CrearRelacion_Click);
             // 
             // lbl_Lista
             // 
@@ -115,34 +118,19 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
-            // list_Alumnos
+            // txtbox_Nombres
             // 
-            this.list_Alumnos.FormattingEnabled = true;
-            this.list_Alumnos.ItemHeight = 16;
-            this.list_Alumnos.Location = new System.Drawing.Point(16, 169);
-            this.list_Alumnos.Name = "list_Alumnos";
-            this.list_Alumnos.Size = new System.Drawing.Size(298, 244);
-            this.list_Alumnos.TabIndex = 7;
+            this.txtbox_Nombres.Location = new System.Drawing.Point(129, 110);
+            this.txtbox_Nombres.Name = "txtbox_Nombres";
+            this.txtbox_Nombres.Size = new System.Drawing.Size(298, 22);
+            this.txtbox_Nombres.TabIndex = 12;
             // 
-            // lbl_Apellidos
+            // txtbox_Apellidos
             // 
-            this.lbl_Apellidos.AutoSize = true;
-            this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Apellidos.Location = new System.Drawing.Point(30, 51);
-            this.lbl_Apellidos.Name = "lbl_Apellidos";
-            this.lbl_Apellidos.Size = new System.Drawing.Size(93, 24);
-            this.lbl_Apellidos.TabIndex = 8;
-            this.lbl_Apellidos.Text = "Apellidos:";
-            // 
-            // lbl_Nombres
-            // 
-            this.lbl_Nombres.AutoSize = true;
-            this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Nombres.Location = new System.Drawing.Point(30, 108);
-            this.lbl_Nombres.Name = "lbl_Nombres";
-            this.lbl_Nombres.Size = new System.Drawing.Size(93, 24);
-            this.lbl_Nombres.TabIndex = 9;
-            this.lbl_Nombres.Text = "Nombres:";
+            this.txtbox_Apellidos.Location = new System.Drawing.Point(129, 53);
+            this.txtbox_Apellidos.Name = "txtbox_Apellidos";
+            this.txtbox_Apellidos.Size = new System.Drawing.Size(298, 22);
+            this.txtbox_Apellidos.TabIndex = 11;
             // 
             // btn_Actualizar
             // 
@@ -155,19 +143,34 @@
             this.btn_Actualizar.Text = "Actualizar Alumno";
             this.btn_Actualizar.UseVisualStyleBackColor = true;
             // 
-            // txtbox_Apellidos
+            // lbl_Nombres
             // 
-            this.txtbox_Apellidos.Location = new System.Drawing.Point(129, 53);
-            this.txtbox_Apellidos.Name = "txtbox_Apellidos";
-            this.txtbox_Apellidos.Size = new System.Drawing.Size(298, 22);
-            this.txtbox_Apellidos.TabIndex = 11;
+            this.lbl_Nombres.AutoSize = true;
+            this.lbl_Nombres.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Nombres.Location = new System.Drawing.Point(30, 108);
+            this.lbl_Nombres.Name = "lbl_Nombres";
+            this.lbl_Nombres.Size = new System.Drawing.Size(93, 24);
+            this.lbl_Nombres.TabIndex = 9;
+            this.lbl_Nombres.Text = "Nombres:";
             // 
-            // txtbox_Nombres
+            // lbl_Apellidos
             // 
-            this.txtbox_Nombres.Location = new System.Drawing.Point(129, 110);
-            this.txtbox_Nombres.Name = "txtbox_Nombres";
-            this.txtbox_Nombres.Size = new System.Drawing.Size(298, 22);
-            this.txtbox_Nombres.TabIndex = 12;
+            this.lbl_Apellidos.AutoSize = true;
+            this.lbl_Apellidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Apellidos.Location = new System.Drawing.Point(30, 51);
+            this.lbl_Apellidos.Name = "lbl_Apellidos";
+            this.lbl_Apellidos.Size = new System.Drawing.Size(93, 24);
+            this.lbl_Apellidos.TabIndex = 8;
+            this.lbl_Apellidos.Text = "Apellidos:";
+            // 
+            // list_Alumnos
+            // 
+            this.list_Alumnos.FormattingEnabled = true;
+            this.list_Alumnos.ItemHeight = 16;
+            this.list_Alumnos.Location = new System.Drawing.Point(16, 169);
+            this.list_Alumnos.Name = "list_Alumnos";
+            this.list_Alumnos.Size = new System.Drawing.Size(298, 244);
+            this.list_Alumnos.TabIndex = 7;
             // 
             // Form1
             // 
